@@ -1,61 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-      *{
-          margin: 0;
-          padding: 0;
-      }
-      ul li {
-          list-style: none;
-      }
-      #box {
-          width: 400px;
-          height: 400px;
-          border: 1px solid #000;
-      }
-      #options {
-         width: 400px;
-         height: 50px;
-         display: flex;
-         border-bottom: 1px solid #000;
-      }
-      #options li {
-        flex: 1;
-        border: 1px solid #000;
-        box-sizing: border-box;
-        text-align: center;
-        line-height: 50px;
-      }
-      #options li .active {
-          color: #f00;
-      }
-      #list {
-          width: 400px;
-          height: 350px;
-      }
-      #list li {
-          text-align: center;
-          font-size: 50px;
-          line-height: 35px;
-          display: none;
-      }
-      #list li .active1{
-          display: block;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        #box {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #000;
+        }
+
+        #options {
+            width: 400px;
+            height: 50px;
+            display: flex;
+            border-bottom: 1px solid #000;
+        }
+
+        #options li {
+            flex: 1;
+            border: 1px solid #000;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        #options li .active {
+            color: #f00;
+        }
+
+        #list {
+            width: 400px;
+            height: 350px;
+        }
+
+        #list li {
+            text-align: center;
+            font-size: 50px;
+            line-height: 35px;
+            display: none;
+        }
+
+        #list li.active1 {
+            display: block;
+        }
     </style>
 </head>
+
 <body>
-    <div id = "box">
+    <div id="box">
         <ul id="options">
-           <li class="active">第一项</li>
-           <li>第二项</li>
-           <li>第三项</li>
-           <li>第四项</li>
+            <li class="active">第一项</li>
+            <li>第二项</li>
+            <li>第三项</li>
+            <li>第四项</li>
         </ul>
         <ul id="list">
             <li class="active1">1</li>
@@ -66,19 +76,21 @@
     </div>
 </body>
 <script>
-    var op = document.getElementById("options");
+    var oP = document.getElementById("options");
     var oL = document.getElementById("list");
-    var oLi = document.getElementsByName("li");
-    var oBox = document.getElementsByClassName("li");
-    for(var i=0;i<oLi.length;i++){
-        oLi[i].onclick=function(){
-            for(var y=0;y<oLi.length;y++){
-                oLi[y].className="";
-                oBox[y].style.display = "none";
+    var oLi = oP.getElementsByTagName("li");
+    var oBox = oL.getElementsByTagName('li');
+    for (var i = 0; i < oLi.length; i++) {
+        oLi[i].index = i;
+        oLi[i].onclick = function () {
+            for (var j = 0; j < oLi.length; j++) {
+                oLi[j].className = "";
+                oBox[j].style.display = "none";
             }
-            oLi[this.index].className="active";
+            oLi[this.index].className = "active";
             oBox[this.index].style.display = "block";
-        }       
+        }
     }
 </script>
+
 </html>
